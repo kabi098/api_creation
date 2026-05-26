@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --bg:             #0d0d0d;
+  --surface:        #161616;
+  --border:         #2a2a2a;
+  --border-hover:   #3f3f3f;
+  --text-primary:   #e8e8e8;
+  --text-secondary: #a0a0a0;
+  --text-muted:     #555;
+  --accent:         #ffd700;
+  --accent-bright:  #ffe44d;
+  --danger:         #ff5050;
+
+  --priority-high:   #ff5050;
+  --priority-medium: #ffa040;
+  --priority-low:    #50b8ff;
+
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 3rem 1rem 5rem;
+}
+
+/* ── App container ── */
+.App {
+  width: 100%;
+  max-width: 640px;
+}
+
+/* ── Header ── */
+.app-header {
+  margin-bottom: 2.5rem;
+}
+
+.header-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.app-title {
+  font-family: var(--font-mono);
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+.title-accent {
+  color: var(--accent);
+  position: relative;
+}
+
+.title-accent::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+  color: var(--text-muted);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.header-stats strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.stat-divider {
+  color: var(--border);
+}
+
+.app-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ── Selection ── */
+::selection { background: var(--accent); color: #000; }

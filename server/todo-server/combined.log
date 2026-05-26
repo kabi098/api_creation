@@ -1,0 +1,11 @@
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2026-04-26T01:45:25.920Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2026-04-26T02:02:11.518Z"}
+2026-04-26 08:01:33 [info]: ✅  Todo API server running
+2026-04-26 08:01:33 [info]:    ➜ API Base : http://localhost:4000/api/v1
+2026-04-26 08:01:33 [info]:    ➜ Docs     : http://localhost:4000/api-docs
+2026-04-26 08:01:33 [info]:    ➜ Health   : http://localhost:4000/health
+2026-04-29 07:14:59 [info]: ✅  Todo API server running
+2026-04-29 07:14:59 [info]:    ➜ API Base : http://localhost:4000/api/v1
+2026-04-29 07:14:59 [info]:    ➜ Docs     : http://localhost:4000/api-docs
+2026-04-29 07:14:59 [info]:    ➜ Health   : http://localhost:4000/health
+2026-04-29 09:44:49 [info]: SIGINT received — shutting down gracefully
