@@ -33,7 +33,7 @@ app.use(morgan('dev'));
 
 /* ── Swagger UI at /api-docs ─────────────────────────────── */
 app.use(
-  '/api-docs',
+  '/kabi/api-docs',
   swaggerUi.serve,
   swaggerUi.setup(apiSpec, {
     customSiteTitle: 'Todo API Docs',
@@ -85,7 +85,7 @@ app.get('/health', (req, res) =>
 );
 
 /* ── Root → redirect to docs ─────────────────────────────── */
-app.get('/', (req, res) => res.redirect('/api-docs'));
+app.get('/', (req, res) => res.redirect('/kabi/api-docs'));
 
 /* ── 404 ─────────────────────────────────────────────────── */
 app.use((req, res) =>

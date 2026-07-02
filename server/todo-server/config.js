@@ -6,8 +6,8 @@ const config = {
   env:  process.env.NODE_ENV || 'development',
 
   api: {
-    basePath: '/api/v1',
-    docsPath: '/api-docs',
+    basePath: '/kabi/api/v1',
+    docsPath: '/kabi/api-docs',
   },
 
   cors: {
