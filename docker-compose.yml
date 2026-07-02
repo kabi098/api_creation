@@ -1,0 +1,44 @@
+services:
+  todo-client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: todo-app-client
+    container_name: todo-client
+    ports:
+      - "3000:80"
+    depends_on:
+      - todo-api
+    restart: unless-stopped
+
+  todo-api:
+    build:
+      context: ./server/todo-server
+      dockerfile: Dockerfile
+    image: todo-app-server
+    container_name: todo-api
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 4000
+    ports:
+      - "4000:4000"
+    restart: unless-stopped
+
+  trivy:
+    image: aquasec/trivy:latest
+    profiles:
+      - scan
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - trivy-cache:/root/.cache/trivy
+    command:
+      - image
+      - --severity
+      - HIGH,CRITICAL
+      - --scanners
+      - vuln
+      - todo-app-server
+
+volumes:
+  trivy-cache:
