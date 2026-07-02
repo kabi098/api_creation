@@ -33,7 +33,7 @@ app.use(morgan('dev'));
 
 /* ── Swagger UI at /api-docs ─────────────────────────────── */
 app.use(
-  '/kabi/api-docs',
+  '/api-docs',
   swaggerUi.serve,
   swaggerUi.setup(apiSpec, {
     customSiteTitle: 'Todo API Docs',
@@ -60,7 +60,7 @@ app.use(
 );
 
 /* ── Serve raw spec as JSON ──────────────────────────────── */
-app.get('/kabi/api-docs.json', (req, res) => res.json(apiSpec));
+app.get('/api-docs.json', (req, res) => res.json(apiSpec));
 
 /* ── API Router ──────────────────────────────────────────── */
 const router = express.Router();
