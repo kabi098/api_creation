@@ -33,7 +33,7 @@ app.use(morgan('dev'));
 
 /* ── Swagger UI at /api-docs ─────────────────────────────── */
 app.use(
-  '/api-docs',
+  '/kabi/api-docs',
   swaggerUi.serve,
   swaggerUi.setup(apiSpec, {
     customSiteTitle: 'Todo API Docs',
@@ -60,7 +60,7 @@ app.use(
 );
 
 /* ── Serve raw spec as JSON ──────────────────────────────── */
-app.get('/api-docs.json', (req, res) => res.json(apiSpec));
+app.get('/kabi/api-docs.json', (req, res) => res.json(apiSpec));
 
 /* ── API Router ──────────────────────────────────────────── */
 const router = express.Router();
@@ -77,7 +77,7 @@ router.delete('/todos/:id',    TodosController.deleteTodo);
 // Stats
 router.get('/stats', StatsController.getStats);
 
-app.use('/api/v1', router);
+app.use('/kabi/api/v1', router);
 
 /* ── Health ──────────────────────────────────────────────── */
 app.get('/health', (req, res) =>
