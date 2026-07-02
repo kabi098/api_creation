@@ -9,3 +9,8 @@
 2026-04-29 07:14:59 [info]:    ➜ Docs     : http://localhost:4000/api-docs
 2026-04-29 07:14:59 [info]:    ➜ Health   : http://localhost:4000/health
 2026-04-29 09:44:49 [info]: SIGINT received — shutting down gracefully
+2026-07-02 11:10:39 [info]: ✅  Todo API server running
+2026-07-02 11:10:39 [info]:    ➜ API Base : http://localhost:4000/kabi/api/v1
+2026-07-02 11:10:39 [info]:    ➜ Docs     : http://localhost:4000/kabi/api-docs
+2026-07-02 11:10:39 [info]:    ➜ Health   : http://localhost:4000/health
+2026-07-02 11:15:57 [info]: SIGINT received — shutting down gracefully

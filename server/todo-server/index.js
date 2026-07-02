@@ -8,7 +8,7 @@ const server = app.listen(config.port, () => {
   logger.info(`✅  Todo API server running`);
   logger.info(`   ➜ API Base : http://${config.host}:${config.port}${config.api.basePath}`);
   logger.info(`   ➜ Docs     : http://${config.host}:${config.port}${config.api.docsPath}`);
-  logger.info(`   ➜ Health   : http://${config.host}:${config.port}/health`);
+  logger.info(`   ➜ Health   : http://${config.host}:${config.port}/kabi/health`);
 });
 
 /* Graceful shutdown */
