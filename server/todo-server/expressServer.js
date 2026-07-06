@@ -77,7 +77,8 @@ router.delete('/todos/:id',    TodosController.deleteTodo);
 // Stats
 router.get('/stats', StatsController.getStats);
 
-app.use('/kabi/api/v1', router);
+app.use(config.api.basePath, router);
+app.use('/api/v1', router);
 
 /* ── Health ──────────────────────────────────────────────── */
 app.get('/health', (req, res) =>

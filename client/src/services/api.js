@@ -1,5 +1,5 @@
 // src/services/api.js
-const BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:4000/api/v1';
+const BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:4000/kabi/api/v1';
 
 async function request(endpoint, options = {}) {
   const url = `${BASE_URL}${endpoint}`;
@@ -13,7 +13,13 @@ async function request(endpoint, options = {}) {
   // 204 No Content (delete)
   if (response.status === 204) return null;
 
-  const data = await response.json();
+  const contentType = response.headers.get('content-type') || '';
+  const isJson = contentType.includes('application/json');
+  const data = isJson ? await response.json() : await response.text();
+
+  if (!isJson) {
+    throw new Error(`Expected JSON from backend but received ${contentType || 'an unknown content type'} from ${url}`);
+  }
 
   if (!response.ok) {
     const message = data?.error?.message || `Request failed: ${response.status}`;

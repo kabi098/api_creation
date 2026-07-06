@@ -18,7 +18,7 @@ function TodoList({ todos, filter, loading, error, onToggle, onDelete, onEdit })
       <div className="empty-state error-state">
         <span className="empty-icon">⚠</span>
         <p>Backend error: {error}</p>
-        <small>Make sure the server is running on localhost:4000</small>
+        <small>Make sure the API is running at /kabi/api/v1, or set REACT_APP_API_BASE_URL to your backend URL.</small>
       </div>
     );
   }

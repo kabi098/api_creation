@@ -11,8 +11,10 @@ info:
     email: support@todoapp.dev
 
 servers:
-  - url: http://localhost:4000/api/v1
+  - url: http://localhost:4000/kabi/api/v1
     description: Local development server
+  - url: http://localhost:4000/api/v1
+    description: Local development server compatibility path
   - url: https://api.todoapp.dev/v1
     description: Production server
 

@@ -35,6 +35,22 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate API base URL
+        env:
+          REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
+        run: |
+          if [ -z "$REACT_APP_API_BASE_URL" ]; then
+            echo "REACT_APP_API_BASE_URL secret is required. Example: http://your-backend-alb/kabi/api/v1"
+            exit 1
+          fi
+
+          case "$REACT_APP_API_BASE_URL" in
+            *s3-website*|*amazonaws.com/index.html*)
+              echo "REACT_APP_API_BASE_URL must point to the backend API, not the S3 frontend website."
+              exit 1
+              ;;
+          esac
+
       - name: Build frontend
         env:
           REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
