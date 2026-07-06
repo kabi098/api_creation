@@ -1,5 +1,5 @@
 // src/pages/Home.js
-import React, { useState } from 'react';
+import React from 'react';
 import TodoInput   from '../components/TodoInput';
 import TodoList    from '../components/TodoList';
 import useTodos    from '../hooks/useTodos';
