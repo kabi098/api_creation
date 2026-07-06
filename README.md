@@ -20,7 +20,13 @@ Add these GitHub repository secrets before running it:
 
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
-- `REACT_APP_API_BASE_URL` such as `https://your-api-domain.com/kabi/api/v1`
+- `REACT_APP_API_BASE_URL`, currently:
+
+```text
+http://concproject-alb-1399477230.ap-south-1.elb.amazonaws.com/kabi/api/v1
+```
+
+Do not use `/kabi/api-docs` for `REACT_APP_API_BASE_URL`; that path serves Swagger HTML, not JSON.
 
 The AWS user needs permission for `s3:ListBucket`, `s3:PutObject`, `s3:DeleteObject`, `s3:PutBucketWebsite`, `s3:PutBucketPublicAccessBlock`, and `s3:PutBucketPolicy`. `s3:PutObjectAcl` is not required by this workflow.
 

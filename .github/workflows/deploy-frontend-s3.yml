@@ -49,6 +49,18 @@ jobs:
               echo "REACT_APP_API_BASE_URL must point to the backend API, not the S3 frontend website."
               exit 1
               ;;
+            */api-docs*|*/kabi/api-docs*)
+              echo "REACT_APP_API_BASE_URL must point to the JSON API path, not Swagger docs. Use /kabi/api/v1."
+              exit 1
+              ;;
+          esac
+
+          case "$REACT_APP_API_BASE_URL" in
+            */kabi/api/v1|*/api/v1) ;;
+            *)
+              echo "REACT_APP_API_BASE_URL should end with /kabi/api/v1. Current value: $REACT_APP_API_BASE_URL"
+              exit 1
+              ;;
           esac
 
       - name: Build frontend
