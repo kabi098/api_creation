@@ -68,6 +68,17 @@ jobs:
           REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
         run: npm run build
 
+      - name: Run Trivy Frontend Scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: client
+          scanners: vuln,secret,misconfig
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          format: table
+          exit-code: 0
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
